@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #327a81;
+            color: white;
+            font-size: 1.5em;
+            padding: 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #daeff1;
+            font-weight: 300;
+        }
+
+        tr:nth-child(even) {
+            background-color: #edf7f8;
+        }
+
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">Reviews</div>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>Comment Heading</th>
+                <th width="230">Comments</th>
+            </tr>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review['Product'] }}</td>
+                <td>{{ review['Name'] }}</td>
+                <td>{{ review['Rating'] }}</td>
+                <td>{{ review['CommentHead'] }}</td>
+                <td>{{ review['Comment'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
