@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="title">Search Page</title>
+    <link rel="icon" href="favicon.ico" type="image/ico">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+
+        .search-form {
+            display: flex;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .search-button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .search-button:hover {
+            background-color: #45a049;
+        }
+        
+        .form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var titleElement = document.getElementById('title');
+            var phrases = ["Search for products", "Phones", "Laptops", "Earphones","T-Shirts","Books"];
+            var currentIndex = 0;
+
+            setInterval(function() {
+                titleElement.innerText = phrases[currentIndex];
+                currentIndex = (currentIndex + 1) % phrases.length;
+            }, 2000); // Change phrase every 2 seconds (2000 milliseconds)
+        };
+    </script>
+</head>
+<body>
+    <div class="content">
+        <h1 style="text-align: center">Search</h1>
+    
+        <div class="form">
+            <form action="/review" method="POST">
+                <input type="text" name="content" id="content" class="search-input" placeholder="Enter your search term">
+                <input type="submit" value="Search" class="search-button">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
